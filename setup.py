@@ -1,7 +1,7 @@
 
 from setuptools import setup, find_packages
 
-VERSION = '0.9.0' 
+VERSION = '0.9.1'
 DESCRIPTION = 'Warehouse Transport Simulation'
 LONG_DESCRIPTION = 'simulates and visualizes transport of loadunits in a warehouse environment. '
 
@@ -12,8 +12,9 @@ setup(
     author_email="<g.w.sachs@gmx.de>",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
-    url = "https://gerpark.github.io/ftsim",
+    url = "https://github.com/gerpark/ftsim",
     license='MIT',
+    keywords = ['tkinter', 'sqlite', 'threading'],
     packages=find_packages(include=['ftsim', 'ftsim.*']),
     package_data = {
         # If any package contains *.txt or *.rst files, include them:

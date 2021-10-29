@@ -12,13 +12,13 @@ and can be used, changed, added by the users.
 
 The loadunits can be transported in and between areas, like
 conveyor belts, workstations for picking and storage areas.
-This can be done manually, automaticly or driven by orders.
+This can be done manually, automatically or driven by orders.
 
 Work in progress
 ================
 
 This Softwareproject `ftsim` is still **at work**, the documentation is not finished but live.
-The software is  still on `test.pyp.org`  and should work under linux.
+The software is  still on `test.pyp.org`  but should work under Linux and Windows.
 It will be moved to pypi in the next weeks, so it should be ready before christmas 21.
 
 

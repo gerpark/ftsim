@@ -2,6 +2,7 @@
 #
 #   ftmain9.py      oct21
 #
+# V910: changes to setup.py
 # V900: now as a package
 
 # Import Modules 
@@ -12,7 +13,6 @@ import webbrowser
 import tkinter as tk
 from   tkinter import ttk
 
-print("__name__",  __name__)
 if __name__ == '__main__':
     from ftdb2 import *
 else:
@@ -72,7 +72,7 @@ class App(ttk.Frame):
                         self.dbname, self.prjid))
                 exit(0)
 
-        parent.title("Fördertechnik mit LadeEinheiten - Version 2.7")
+        parent.title("FTSIM - Fördertechnik mit LadeEinheiten - Version 0.9.1")
 
         # Workstations in eigenen Fenstern rechts von der Visualisierung anzeigen.
         winpos= self.getGeometry()
@@ -185,7 +185,7 @@ class App(ttk.Frame):
 
     def browser(self):
         #print("browser")
-        url = 'http://www.ortrun-dieterich.de'
+        url = 'https://ftsim.readthedocs.io/'
         webbrowser.open_new(url)
 
 
@@ -210,9 +210,8 @@ class App(ttk.Frame):
             self.wsdict[lfTo.lfname].autotransport()
 
     def createMenus(self):
-
-        # https://stackoverflow.com/questions/56041280/accelerators-not-working-in-python-tkinter-how-to-fix#56042178
         # App::createMenus()
+        # https://stackoverflow.com/questions/56041280/accelerators-not-working-in-python-tkinter-how-to-fix#56042178
         menubar = tk.Menu(self.parent, relief=tk.FLAT)
         self.parent.config(menu=menubar)
 
@@ -220,7 +219,7 @@ class App(ttk.Frame):
         self.kpvar = tk.IntVar()
         self.kpvar.set(bool(self.autokp))
         self.setautokp()
-        fileMenu.add_checkbutton(label="Automatischer K-Punkt",
+        fileMenu.add_checkbutton(label="Automatic Picking",
             variable=self.kpvar, onvalue=1, offvalue=0, command=self.setautokp,
             accelerator = 'F4')
 
@@ -238,11 +237,11 @@ class App(ttk.Frame):
             value=1, command=self.changeSpeed)
         optMenu.add_radiobutton(label="Speed 3", variable=self.speedvar,
             value=2, command=self.changeSpeed)
-        menubar.add_cascade( label="Geschwindigkeit", menu=optMenu, underline=0)
+        menubar.add_cascade( label="Speed", menu=optMenu, underline=0)
 
         helpMenu = tk.Menu(menubar, tearoff=0)
-        helpMenu.add_command(label="Hilfe", command=self.browser)
-        menubar.add_cascade( label="Hilfe", menu=helpMenu, underline=0)
+        helpMenu.add_command(label="Help", command=self.browser)
+        menubar.add_cascade( label="Help", menu=helpMenu, underline=0)
 
 
     def createwidgts(self):
@@ -254,7 +253,6 @@ class App(ttk.Frame):
         # Spielfeld erstellen
         if spparas:
             fx,fy,fpx = spparas
-            # width  = fx*fpx + 1*fpx -50
             width  = fx*fpx
             height = fy*fpx + 1*fpx
 
@@ -269,7 +267,7 @@ class App(ttk.Frame):
         px = "50"
         py = "20"
 
-        self.kp1 = tk.Button(self, text='Arbeitsplatz', command=self.startkp)
+        self.kp1 = tk.Button(self, text='Workstation', command=self.startkp)
         self.kp1.grid(row=2, column=0, padx=px, ipady=0, pady=py,sticky=tk.W+tk.E)
 
         self.bstart = tk.Button(self, text='Start/Stop', command=self.startThreads)
@@ -320,7 +318,7 @@ class App(ttk.Frame):
 
     def changeSpeed(self):
         """ Ändert die Laufgeschwindigkeit der LE's auf der FT. Damit die
-            die Änderung wirksam wird, müssen die Threats neu gestartet werden.
+            die Änderung wirksam wird, müssen die Threads neu gestartet werden.
         """
         speedarr = [0.4, 0.2, 0.05]
         speedvar = self.speedvar.get()
@@ -333,8 +331,8 @@ class App(ttk.Frame):
             # werden, ob die Threads alle gestoppt waren.
 
     def startThreads(self):
-        """ start/stop the threads """
         # App::startThreads()
+        """ start/stop the threads """
         self.auto = False if self.auto else True
         if not self.auto:
             log.log(1, "THREADS gestoppt !")
