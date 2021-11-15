@@ -2,7 +2,8 @@
 #
 #   ftmain9.py      oct21
 #
-# V910: changes to setup.py
+# V912: translations and workstation layout
+# V911: changes to setup.py
 # V900: now as a package
 
 # Import Modules 
@@ -72,7 +73,7 @@ class App(ttk.Frame):
                         self.dbname, self.prjid))
                 exit(0)
 
-        parent.title("FTSIM - Fördertechnik mit LadeEinheiten - Version 0.9.1")
+        parent.title("FTSIM - Warehouse with Transport Units - Version 0.9.1")
 
         # Workstations in eigenen Fenstern rechts von der Visualisierung anzeigen.
         winpos= self.getGeometry()
@@ -412,7 +413,7 @@ class Ws(tk.Toplevel):
         self.always = False # False = close dialog after transport
 
         self.master = master
-        self.title(lf.ft.name)
+        self.title("Workstation " + lf.ft.name)
 
         # Dialoggrösse und Position festlegen
         if self.lf.lfname in self.master.wspos:
@@ -449,72 +450,67 @@ class Ws(tk.Toplevel):
         # Ws::createwidgts()
         # Widgets:  ~python/tk/grid/tktmpl_06.py 
 
-        # https://stackoverflow.com/questions/54476511/setting-background-color-of-a-tkinter-ttk-frame
         ftnames = []
         for ftname in Ft.fta:
             ftnames.append(ftname)
 
         # Initialize style
+        # https://stackoverflow.com/questions/54476511/setting-background-color-of-a-tkinter-ttk-frame
         s = ttk.Style()
-        s.configure('Lbl1.TLabel', background='orange')
-        s.configure('Lbl2.TLabel', background=self.farbe)
         s.configure('Kp.TFrame'  , background=self.farbe)
+        s.configure('Kp2.TFrame' , foreground=self.farbe, background=self.farbe)
+        s.configure('Lbl.TLabel' , foreground='black', background=self.farbe)
 
         self.basefr = ttk.Frame(self, style='Kp.TFrame', borderwidth=1)
-        self.basefr.grid(row=0, column=0, padx=0, pady=2)
+        self.basefr.grid(row=0, column=0, padx=0, pady=0)
 
         # -1-
-        self.fr1 = ttk.Frame(self.basefr, style='Fr1.TFrame')
+        self.fr1 = ttk.Frame(self.basefr, style='Kp2.TFrame')
         self.fr1.grid(row=0, column=0, padx=3, pady=2, sticky=tk.W)
 
-        self.lb1 = ttk.Label(self.fr1, width=4, text="LE:", style='Lbl1.TLabel')
+        self.lb1 = ttk.Label(self.fr1, width=11, text="LE:", style='Lbl.TLabel')
         self.lb1.grid(row=0, column=0) 
 
         self.leidvar = tk.StringVar()
         self.ent1 =  ttk.Entry(self.fr1, textvariable=self.leidvar, width=5)
-        self.ent1.grid(row=0, column=1)
+        self.ent1.grid(row=0, column=1,  sticky=tk.W)
 
         leid = self.leidvar.get()
         self.leidvar.set(leid.upper())
 
-        # -2-
-        # Alle Widgets sind jetzt nach links ausgerichtet (egal was man macht)
-        self.fr2 = ttk.Frame(self.basefr, style='Kp.TFrame')
-        self.fr2.grid(row=1, column=0, padx=2, pady=2)
-
-        self.lb2 = ttk.Label(self.fr2, width=4, text="Ziel:", style='Lbl1.TLabel')
-        self.lb2.grid(row=0, column=0, sticky=tk.W)
+        self.lb2 = ttk.Label(self.fr1, text="Target Area:", style='Lbl.TLabel')
+        self.lb2.grid(row=1, column=0, sticky=tk.W, pady=10)
 
         self.txtvar = tk.StringVar()
-        self.cb1 =  ttk.Combobox(self.fr2, width=10, state="readonly",
+        self.cb1 =  ttk.Combobox(self.fr1, width=10, state="readonly",
                 textvariable=self.txtvar)
-        self.cb1.grid(row=0, column=1, sticky=tk.W)
+        self.cb1.grid(row=1, column=1, sticky=tk.W)
 
         self.txtvar.set(ftnames[0])
         self.cb1.configure(values=ftnames)
 
-        # Anzeige von Kommentaren und Fehlern
+        # Show comments and Errors
         self.msgvar = tk.StringVar()
-        self.lb3 = ttk.Label(self.fr2, width=30, textvariable=self.msgvar,
-                            anchor="center", style='Lbl2.TLabel')
-        self.lb3.grid(row=1, column=0, columnspan=2, pady=10)
+        self.lb3 = ttk.Label(self.fr1, width=30, textvariable=self.msgvar,
+                            anchor="center", style='Lbl.TLabel')
+        self.lb3.grid(row=2, column=0, columnspan=2, pady=5)
         self.msgvar.set("")
 
-        # -3-
-        self.fr3 = ttk.Frame(self.basefr, style='Kp.TFrame')
-        self.fr3.grid(row=2, column=0)
+        # -2-
+        self.fr2 = ttk.Frame(self.basefr, style='Kp.TFrame')
+        self.fr2.grid(row=2, column=0)
 
-        self.btp = tk.Button(self.fr3, text='NEU', command=self.newLe, width=2)
+        self.btp = tk.Button(self.fr2, text='New LE', command=self.newLe, width=5)
         self.btp.grid(row=0, column=0, padx=2, ipadx=1)
 
-        self.btp = tk.Button(self.fr3, text='TP', command=self.transport, width=2)
+        self.btp = tk.Button(self.fr2, text='Transport', command=self.transport, width=5)
         self.btp.grid(row=0, column=1,  padx=2, ipadx=1)
 
-        self.bquit = tk.Button(self.fr3, text='Quit', command=self.ende, width=2)
+        self.bquit = tk.Button(self.fr2, text='Quit', command=self.ende, width=5)
         self.bquit.grid(row=0, column=2,  padx=2, ipadx=1)
 
+
     def setAlways(self, wert):
-        # Set always
         self.always = wert
 
     def keyb(self, event):
@@ -567,9 +563,8 @@ class Ws(tk.Toplevel):
             else:
                 ziel = "--"
 
-            log.log(4, "* {0:2s} * {1}: ins LAGER  zu {2:2s} ({3:2d})".format(
+            log.log(4, "* {0:2s} * {1}: into Storeage Area to location {2:2s} ({3:2d})".format(
                 lf.ft.name, leid, ziel, lf.le.lestat))
-
 
     def transport(self):
         # Ws::transport()
@@ -580,19 +575,19 @@ class Ws(tk.Toplevel):
             # Soll eine LE, die ihr aktuelles Ziel noch nicht erreicht hat,
             # auch schon umgeroutet werden ?
             newziel= self.txtvar.get()
-            log.log(9, "* {0:2s} * {1}: hat jetzt das Ziel <{2}>".format(
+            log.log(9, "* {0:2s} * {1}: now has the target <{2}>".format(
                 self.lf.ft.name, leid, newziel))
 
             if le.ziel != newziel:
-                msg = "ABTRANSPORT von <{0}>  !".format(leid)
+                msg = "Transport of <{0}>  !".format(leid)
                 le.ziel = newziel
                 self.leidvar.set("")
                 Ft.dbqueue.put((le, 60))
 
         elif leid:
-            msg = "Es gibt keine LE <{0}> !".format(leid)
+            msg = "LE <{0}> does not exist !".format(leid)
         else:
-            msg = "Keine LE angegeben !"
+            msg = "Please Enter LE!"
 
         self.msgvar.set(msg)
         self.setLeid(self.lf)
@@ -608,14 +603,14 @@ class Ws(tk.Toplevel):
         self.leidvar.set(leid)
 
         if not leid:
-            self.tell("Bitte LE  angeben!")
+            self.tell("Please enter LE!")
             return
         elif  self.lf.le:
-            self.tell("Platz ist schon mit LE {0} belegt!".format(self.lf.le))
+            self.tell("Locations is occupied with LE {0} !".format(self.lf.le))
             return
         elif leid not in Le.lea:
             ziel = self.lf.ft.name
-            log.log(4, "* {0:2s} * {1}: NEUE LE am Platz <{2}>!".format(
+            log.log(4, "* {0:2s} * {1}: New LE at location <{2}>!".format(
                 ziel, leid, self.lf))
 
             # Das Ziel der LE muss die akt. FT sein
@@ -624,23 +619,23 @@ class Ws(tk.Toplevel):
             self.lf.setLe(le)
             self.lf.ft.moveLe(self.lf, self.lf)
         else:
-            self.tell("Die LE {0} gibt es schon!".format(leid))
+            self.tell("LE {0} does exist !".format(leid))
 
 
 def ftmain():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--db", default="ft.db", help="Datenbankname")
+    parser.add_argument("--db", default="ft.db", help="Database-name")
     parser.add_argument("--id", default=None, help="Projektnummer in der DB")
     parser.add_argument("--verbose", "-v",  type=int,  default=0,
-            help="DebugInfos ausgeben (0,1,2,3)")
-    parser.add_argument("--auto", help="Startet und Stoppt automatisch",
+            help="show Debug info (0,1,2,3)")
+    parser.add_argument("--auto", help="Starts and Stops automatically ",
             action="store_true")
     args = parser.parse_args()
 
     dbpath = pathlib.Path(__file__).parent.resolve()
     dbname = os.path.join(dbpath, args.db)
-    print("Datenbankname <{0}> \nProjet-Id <{1}> Verbose <{2}>".format(
+    print("Database-name <{0}> \nProjet-Id <{1}> Verbose <{2}>".format(
         dbname, args.id, args.verbose))
 
     dbabout = (dbname, args.id, args.auto)
