@@ -6,6 +6,8 @@ The software was written in german, so I'm going
 to explain the abbreviations first, because
 they are used in the code and database names.
 
+.. _basic_le:
+
 Transport Units
 ---------------
 It's all about  :ref:`Transport Units<cfg_le>`,
@@ -13,6 +15,8 @@ called **LE**'s (Ladeeinheiten/Loadunits)
 
 We don't use any inventories, but for picking
 You can imagine, there is some inventory on each LE.
+
+.. _basic_ft:
 
 Areas
 -----
@@ -23,6 +27,8 @@ but there are also storage areas and picking areas.
 
 Each Area tries to move its transport Units.
 As they do it independently, each `Ft` (Area) runs in it's own thread.
+
+.. _basic_lf:
 
 Locations
 ---------

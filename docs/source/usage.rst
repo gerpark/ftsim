@@ -1,4 +1,7 @@
 
+.. _usage:
+
+
 How to use the program
 ======================
 
