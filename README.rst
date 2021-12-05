@@ -1,41 +1,44 @@
 .. Sollte mit index.rst in docs abgestimmt sein !
 
 
-FTSIM - Warehouse Transport Simulation
+FTSim - Warehouse Transport Simulation
 ======================================
 
-This project simulates and visualizes the transport of loadunits 
+This Python Package simulates and visualizes the transport of loadunits 
 in a simple warehouse environment. 
 
 Different layouts and optionaly orders are stored in a database
-and can be used, changed, added by the users.
+and can be used, changed, added by the user.
 
 The loadunits can be transported in and between areas, like
 conveyor belts, workstations for picking and storage areas.
 This can be done manually, automatically or driven by orders.
 
+The basic idea of this project was dealing with the question
+if the time required for a batch of orders is predictable.
+
 Work in progress
 ================
 
-This Softwareproject `ftsim` is still **at work**, the documentation is not finished but live.
-The software is  still on `test.pyp.org`  but should work under Linux and Windows.
-It will be moved to pypi in the next weeks, so it should be ready before christmas 21.
+The  Softwareproject `FtSim` is still **at work**, and the documentation is not finished.
+Since december 21 it is on  `pypi.org`.
 
+If You have any questions, suggestions, corrections,
+please feel free to contact me at g.w.sachs@gmx.de, - I would be very pleased.
 
 Audiance
 ========
 
 The project can be used just for playing, or to train sql skills.
 For developers the combination of tkinter, sqlite and threading
-might be of interest. The main iussue in the beginning was
-the question if the requested time of a batch of orders
+might be of interest. The main iussue was about the question if the time required for a batch of orders
 is predictable.
 
 Installation
 ============
 The project does not need any extra packages, its all in
 the standard library. 
-Make sure that You are using Python3:
+Make sure you are using python3:
 
 .. code-block:: text
 
@@ -55,6 +58,5 @@ Documentation
 It will look like this
 ======================
 
-.. figure:: prj105layout.png
-    :align: left
-    :figwidth: 100%
+.. image:: https://github.com/gerpark/ftsim/raw/master/prj105layout.png 
+

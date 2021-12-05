@@ -17,8 +17,8 @@ I usually do it step by step using the command line tool ``sqlite3``.
 In between I run ``ftsim`` just to check if the layout 
 looks as intended.
 
-The basic configuration is read only once in the beginning.
-Only the order-tables, if used, are changed during runtime.
+The basic configuration **is read only once** in the beginning.
+Only the **order-tables**, if used, are changed during runtime.
 
 Basic - Tables
 --------------

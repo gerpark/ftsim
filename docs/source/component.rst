@@ -2,7 +2,7 @@
 Components and Names
 ====================
 
-The software was written in german, so I'm going
+The software was written in German, so I'm going
 to explain the abbreviations first, because
 they are used in the code and database names.
 
@@ -11,10 +11,9 @@ they are used in the code and database names.
 Transport Units
 ---------------
 It's all about  :ref:`Transport Units<cfg_le>`,
-called **LE**'s (Ladeeinheiten/Loadunits)
-
+called **LE**'s (Ladeeinheiten/Loadunits).
 We don't use any inventories, but for picking
-You can imagine, there is some inventory on each LE.
+You have to imagine there is some inventory on each `LE`.
 
 .. _basic_ft:
 
@@ -44,13 +43,13 @@ Workstation
 The picking area is very similar to a conveyor belt, but it has
 one Location of type Workstation (**Ws**). This is the location
 where the picking happens. On our visualization a little dialog pops up
-as soon as a LE arrives.  In a real warehouse the Workstation might be a PC. 
+or receives the focus as soon as a `LE` arrives.  In a real warehouse the Workstation might be a PC. 
 To move the LE further on (after imaginary inventory has been picked)
 the dialog has to be used.
-Furthermore the Workstation dialog allows to create new LE's.
+Furthermore the Workstation dialog allows to create new `LE's`.
 
 Orders
 ------
 
-Additionally it is possible to supply orders. Each order (Task Order) is dynamically assigned
-to one Workstation and consists of one or more tasks. A Task simply consists a LE name.
+Additionally it is possible to supply orders. Each `order` (Task Order) is dynamically assigned
+to one Workstation and consists of one or more `tasks`. A Task simply consists of a LE name.

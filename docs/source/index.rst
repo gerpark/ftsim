@@ -4,12 +4,11 @@
    contain the root `toctree` directive.
 
 
-Introduction to ftsim
+Introduction to FtSim
 =====================
 
-This Softwareproject `ftsim` is still **at work**, the documentation is not finished but live.
-The software is  still on `test.pyp.org`  and should work under linux.
-It will be moved to pypi in the next weeks, so it should be ready before christmas 21.
+`FtSim` is now on `PYPI <https://pypi.org/project/ftsim/>`_ available and there is still a lot to do,
+but I think it runs stable under MS-Windows and linux, and probably also under MacOS.
 
 Now what is it all about:
 
@@ -25,13 +24,15 @@ stored in a sqlite3 database. The software itself is written in python3, the GUI
 uses tkinter and each conveyor belt, the storage area and the Workstations
 are running in seperate threads.
 
-Originally the idea for this project was about questions 
+Originally the idea for this project was dealing with questions 
 concerning the time behavior of orders in a complex warehouse system.
 So the question was, how long will it take to pick a certain batch of orders
-and is the required time time predictable.
+and is the required time predictable.
 
 But the software can be used as well for playing with and building 
 of nice and simple warehouse sites (sql exercise).
+
+Have a try and if there any questions, suggestions, corrections, please feel free to contact me at g.w.sachs@gmx.de.
 
 
 .. toctree::

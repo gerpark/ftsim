@@ -4,7 +4,7 @@ Getting Started
 Abstract
 --------
 
-FTsim simulates and visualizes the transport of loadunits in a simple warehouse environment.
+FtSim simulates and visualizes the transport of loadunits in a simple warehouse environment.
 Different layouts and optionaly orders are stored in a database and can be used, changed, added by the user.
 The loadunits can be transported in and between areas, like conveyor belts, workstations for picking and storage areas.
 This can be done manually, automatically or driven by orders.
@@ -43,7 +43,7 @@ or on Windows::
 Basic usage
 -----------
 
-Start the Windows command line or a terminal and type ftsim.
+Start the Windows command line or a Linux/MaxOS terminal and type ftsim.
 
     $ ftsim
 
