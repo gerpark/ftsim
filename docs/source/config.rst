@@ -17,8 +17,9 @@ I usually do it step by step using the command line tool ``sqlite3``.
 In between I run ``ftsim`` just to check if the layout 
 looks as intended.
 
-The basic configuration **is read only once** in the beginning.
-Only the **order-tables**, if used, are changed during runtime.
+The basic configuration **is read only once** in the beginning
+when the program is started.
+Only the **order-tables**, if in use, are changed during runtime.
 
 Basic - Tables
 --------------
@@ -31,7 +32,7 @@ The **central** Configuration Table::
 	fieldy INT,
 	fieldpx INT)
 
-prjid ist die zentrale Project-Id, und fieldx/y the overall size of the layout.
+prjid stands for project-id, und fieldx/y is the overall size of the layout.
 
 .. _cfg_ft:
 
@@ -46,7 +47,7 @@ The **areas**::
 ``ftname`` is the name of the area,
 ``fttyp`` may have these values:
 
- *     FT =  conveyor 
+ *     FT =  automatic conveyor belt
  *     LB =  storage area
  *     KP =  picking area
  *     DB =  Database
@@ -55,7 +56,7 @@ The **areas**::
 
 .. _cfg_lf:
 
-Each area consists of a number of **Locations**::
+Each Area consists of a number of **Locations**::
 
     CREATE TABLE lf(
 	prjid INT,
@@ -68,13 +69,15 @@ Each area consists of a number of **Locations**::
 	PRIMARY KEY (prjid, lfname))
 
 
-``xkor/ykor`` define the coordinates in the layout,
-``lftyp`` is either NULL or KP for the picking place.
+``ftname`` is the Area the Location belongs to.
+``xkor/ykor`` define the coordinates in the layout and
+``lftyp`` is either NULL or KP for a picking place.
 
-If the Location is occupied with a Transport Unit (LE), ``leid`` 
-gets the name of it.
-The seqence of the Locations is given by the order of the
-Location names.
+If a Location is occupied with a Transport Unit (LE), the 
+Databasefield ``leid`` needs to be set.
+Locations of a certain Area form a sequence, which ist determined
+by the order of the location names.
+
 
 .. _cfg_le:
 
@@ -87,12 +90,12 @@ The **Transport Unit** also called **LE**::
 	ftziel VARCHAR(2),
 	PRIMARY KEY (prjid, leid))
 
-``lfname`` is the name of the Location 
-which holds the Transport Unit in the beginning.
 ``ftziel`` is the target area of the LE.
+``lfname`` is only for documentation, the Location
+of the LE must be set in table ``lf``.
 
 
-If a Location is connected to a Location of a different area,
+If a Location is connected to a Location of a different Area,
 or the last Location is connected to the first
 Location of the same area an **alternate Location**
 has to be configured::
@@ -103,28 +106,33 @@ has to be configured::
 	altlf VARCHAR(6),
 	PRIMARY KEY (prjid, lfname))
 
+
+``lfname`` is the source location and
 ``altlf`` is the name of the alternate Location.
 
-If a Location is an entrance to a certain area,
-many **target areas** can be configured::
+
+If a Location is the entrance to a certain area,
+a list of **target areas** can be configured.
+The first area will be the area itself, further areas
+will be used for routing::
 
     CREATE TABLE lfziel(
 	prjid INT NOT NULL,
 	lfname VARCHAR(6) NOT NULL,
 	ftname VARCHAR(2) NOT NULL)
 
-``ftname`` contains the area and is used
-as routing information, how to get there.
+``lfname`` specifies the Location, ``ftname`` contains the target area.
+
 
 Order - Tables
 --------------
 
 
 A Task contains the LE, which holds the imaginary inventory,
-which has to be picked.
+which needs to be picked at the Picking Place / the Workstation.
 
-The Taskorder consists of one or more Tasks. In this way all
-Tasks can be picked at the same Workstation.
+A Taskorder consists of one or more Tasks, so all 
+Tasks will be picked at the same Workstation.
 Taskorder and Tasks are updated during runtime.
 
 If there is a open Taskorder it will be assigned to a free workstation.
@@ -168,8 +176,8 @@ and the ``taskoid`` it belongs to::
       * 60  LE at workstation
       * 95  LE picked and left the workstation
 
-The table ``le`` is not updated, everything
-about the state of a Transport Unit is stored in the table Task.
+The table ``le`` is not updated, not used anymore.
+All information about the LE  is stored in the table Task.
 
 The remaining tables are about statistics,
 the times for each Taskorder are written into 

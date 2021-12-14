@@ -34,8 +34,8 @@ Locations
 
 Each Area consists of a sequence of :ref:`Locations<cfg_lf>`,
 called **Lf**'s (Lagerfächer).
-Each Location can have a Transport Unit (LE) and so each `LE` is moving
-from one `location` to the next one.
+Each Location can hold one Transport Unit (LE) and so each `LE` is moving
+from one Location to the next one.
 
 Workstation
 -----------
@@ -45,11 +45,12 @@ one Location of type Workstation (**Ws**). This is the location
 where the picking happens. On our visualization a little dialog pops up
 or receives the focus as soon as a `LE` arrives.  In a real warehouse the Workstation might be a PC. 
 To move the LE further on (after imaginary inventory has been picked)
-the dialog has to be used.
+a dialog has to be used.
 Furthermore the Workstation dialog allows to create new `LE's`.
 
 Orders
 ------
 
-Additionally it is possible to supply orders. Each `order` (Task Order) is dynamically assigned
-to one Workstation and consists of one or more `tasks`. A Task simply consists of a LE name.
+Additionally it is possible to supply Orders. Each `order` (Task Order) is dynamically assigned
+to one Workstation and consists of one or more `tasks`. A Task basically consists of a `LE`,
+which carries the imaginary inventory.

@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 import pathlib
 
-VERSION = '0.9.1'
+VERSION = '0.9.2'
 DESCRIPTION = 'Simulates and visualises transport of loadunits in a warehouse environment.'
 
 # Get the long description from the README file
@@ -25,7 +25,7 @@ setup(
     packages=find_packages(include=['ftsim', 'ftsim.*']),
     package_data = {
         # If any package contains *.txt or *.rst files, include them:
-        '': ['*.db', '*.xml', '*.png'],
+        '': ['*.db', '*.xml', '*.png', '*.sql'],
         },
     entry_points={
         #                :  script=dir.file:function

@@ -21,7 +21,7 @@ given with verbose 4.
 
 So starting the program might look like this::
 
-    ftsim.py --id 160 -v 4
+    ftsim.py --id 104 -v 4
 
 
 If the option ``auto`` is given, the program will end as soon
@@ -34,7 +34,7 @@ All moves of the Transport units (=LE) depend on the target, which is stored in 
 The target contains the name of an area, if it is empty the LE remains in the current area.
 
 The target for a `LE` might be set in the configuration, or it might be
-set later on at a `Workstation`.  When the LE reaches a Storage Area or a Workstation,
+set later in the `Workstation Dialog`.  As soon as a `LE` reaches a Storage Area or a Workstation,
 the target is cleared.
 
 
@@ -59,7 +59,7 @@ Automatic transports can be started or stopped with a
 button in the main dialog.
 Every area is checked and all LE's are moved one step
 forward. This cycle needs to be stopped explicitly,
-otherwise it is is repeated forever.
+otherwise it is repeated forever.
 
 If a LE arrives at a `workstation` a special Dialog pops up
 representing that workstation. To forward the `LE`, a new target must
@@ -69,8 +69,8 @@ be chosen before the transport button is clicked.
 Automatic transports with orders
 --------------------------------
 
-Starting in automatic mode means as well checking for free taskorders.
-If there is one, the taskorder is assigned to a workstation, if there is one available.
+Starting in automatic mode means as well checking for free Taskorders.
+If there is one, the taskorder is assigned to a `Workstation`, if there is one available.
 Each task belonging to that taskorder contains just the name of a Transport Unit.
 If that LE is located in a storage area, the task will be started,
 which means, the LE receives the target from the corresponding taskorder.
@@ -78,7 +78,7 @@ which means, the LE receives the target from the corresponding taskorder.
 When the LE arrives at the Workstation a new target
 can be chosen. If the programm was started from the commandline
 with automode, or if 'auto Picking' was chosen from the menu,
-target and transport are handled automatically.
+the `Workstation Dialog` is handled automatically.
 
 After picking of all tasks the taskorder is closed and
 the `Workstation` is ready for another `Taskorder`.

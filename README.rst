@@ -7,7 +7,7 @@ FTSim - Warehouse Transport Simulation
 This Python Package simulates and visualizes the transport of loadunits 
 in a simple warehouse environment. 
 
-Different layouts and optionaly orders are stored in a database
+Different layouts and optionally orders are stored in a database
 and can be used, changed, added by the user.
 
 The loadunits can be transported in and between areas, like
@@ -20,11 +20,11 @@ if the time required for a batch of orders is predictable.
 Work in progress
 ================
 
-The  Softwareproject `FtSim` is still **at work**, and the documentation is not finished.
-Since december 21 it is on  `pypi.org`.
+The  Softwareproject `FTSim` is still **at work**, and the documentation is not finished,
+but runs stable under MS-Windows and linux, and probably also under MacOS.
 
 If You have any questions, suggestions, corrections,
-please feel free to contact me at g.w.sachs@gmx.de, - I would be very pleased.
+don't hesitate to contact me at g.w.sachs@gmx.de.
 
 Audiance
 ========

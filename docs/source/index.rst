@@ -1,18 +1,13 @@
-.. ftsim documentation master file, created by
-   sphinx-quickstart on Sat Sep  4 11:32:51 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-
-Introduction to FtSim
+Introduction to FTSim
 =====================
 
-`FtSim` is now on `PYPI <https://pypi.org/project/ftsim/>`_ available and there is still a lot to do,
-but I think it runs stable under MS-Windows and linux, and probably also under MacOS.
+`FTSim` is now on `PYPI <https://pypi.org/project/ftsim/>`_ but there is still a lot to do.
+The program runs stable under MS-Windows and linux, and probably also under MacOS.
 
-Now what is it all about:
+What is it all about:
 
-This project simulates and visualizes the transport of loadunits 
+This program simulates and visualizes the transport of loadunits 
 in a simple warehouse environment. These loadunits are called
 Transport Units, as the inventory is only imagined.
 Transport Units can be moved manually or automatically
@@ -24,15 +19,14 @@ stored in a sqlite3 database. The software itself is written in python3, the GUI
 uses tkinter and each conveyor belt, the storage area and the Workstations
 are running in seperate threads.
 
-Originally the idea for this project was dealing with questions 
-concerning the time behavior of orders in a complex warehouse system.
-So the question was, how long will it take to pick a certain batch of orders
-and is the required time predictable.
+Originally the idea for this project was dealing with the time behavior
+of orders in a complex warehouse system. So the question was, how long will it take
+to pick a certain batch of orders and is the required time predictable.
 
 But the software can be used as well for playing with and building 
 of nice and simple warehouse sites (sql exercise).
 
-Have a try and if there any questions, suggestions, corrections, please feel free to contact me at g.w.sachs@gmx.de.
+Have a try and if there any questions, suggestions, corrections, don't hesitate to contact me at g.w.sachs@gmx.de.
 
 
 .. toctree::
@@ -43,6 +37,7 @@ Have a try and if there any questions, suggestions, corrections, please feel fre
    component.rst
    usage.rst
    config.rst
+   project.rst
 
 
 Indices and tables

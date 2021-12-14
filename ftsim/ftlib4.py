@@ -134,12 +134,10 @@ class Ft():
             # erst nach jedem 4ten Step nach neuen Tasko's suchen
             if self.itest%4 == 0:
                 Ft.orders.findtasko(self.name)
-                # self.findtasko()
 
     def sleepLB(self, x, lf, le):
         """ V64: Verzögerung im Regal simulieren """
-        # x += 4
-        x = x * (1.5) + 3   # V72
+        x = x * (1.5) + 3
         faktor = sqrt(x)
         res = faktor * Ft.app.speed
         # log.log(9,"x={0:2d} faktor {1:5.2f} -> {2:4.1f}".format(x, faktor, res))
@@ -203,8 +201,6 @@ class Ft():
 
                 log.log(4, "* {0:2s} * {1}: Zurück mit Ziel {2}".format(
                     self.name, ueplf.le, ft.name))
-                # besser wäre vielleicht, wenn es nach einer
-                # erneuten Runde wieder ins Lager geht ? 
                 ueplf.le.ziel = ft.name
                                 
 
@@ -238,12 +234,13 @@ class Ft():
     def moveLe(self, lfFrom, lfTo):
         # Ft::moveLe
         le = lfFrom.le
-        lastmove = None
         res = False
         kp = None
 
+        lastmove = None
         if le.leid in Le.moved:
             lastmove =  Le.moved[le.leid] 
+
         if lastmove:
             log.log(4, "* {0:2s} * {1}: WAIT: LE muss warten !".format(
                         lfFrom.ft.name, lfFrom.le, lfTo.lfname))
@@ -518,7 +515,7 @@ class Log():
     # 6       X   X   |   -   -   -  X    DB - Tasks
     # ...
     #
-    # verbose 9 = alles 
+    # verbose 9 = log allways
 
     def __init__(self):
         self.verbose = 0
@@ -543,7 +540,6 @@ class Log():
 
     def setVerbose(self,verbose):
         self.verbose = verbose
-        # print("Verbose now {0}".format(verbose))
 
 
 # Initialize Global Logging System

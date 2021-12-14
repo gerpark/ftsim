@@ -73,7 +73,7 @@ class App(ttk.Frame):
                         self.dbname, self.prjid))
                 exit(0)
 
-        parent.title("FTSIM - Warehouse with Transport Units - Version 0.9.1")
+        parent.title("FTSim - Warehouse with Transport Units - Version 0.9.2")
 
         # Workstations in eigenen Fenstern rechts von der Visualisierung anzeigen.
         winpos= self.getGeometry()
@@ -401,7 +401,7 @@ class App(ttk.Frame):
 class Ws(tk.Toplevel):
     """ WS (Workstation) oder auch K-Platz """
     # x, y, pad -> windowinfo()
-    dlgsize = (240, 135, 20)
+    dlgsize = (250, 135, 20)
 
     def __init__(self, master, lf):
         log.log(9,"\t WS {0} erstellen.".format(lf))
@@ -500,10 +500,10 @@ class Ws(tk.Toplevel):
         self.fr2 = ttk.Frame(self.basefr, style='Kp.TFrame')
         self.fr2.grid(row=2, column=0)
 
-        self.btp = tk.Button(self.fr2, text='New LE', command=self.newLe, width=5)
+        self.btp = tk.Button(self.fr2, text='New LE', command=self.newLe, width=6)
         self.btp.grid(row=0, column=0, padx=2, ipadx=1)
 
-        self.btp = tk.Button(self.fr2, text='Transport', command=self.transport, width=5)
+        self.btp = tk.Button(self.fr2, text='Transport', command=self.transport, width=7)
         self.btp.grid(row=0, column=1,  padx=2, ipadx=1)
 
         self.bquit = tk.Button(self.fr2, text='Quit', command=self.ende, width=5)
@@ -625,17 +625,17 @@ class Ws(tk.Toplevel):
 def ftmain():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--db", default="ft.db", help="Database-name")
-    parser.add_argument("--id", default=None, help="Projektnummer in der DB")
+    parser.add_argument("--db", default="ft.db", help="databasename")
+    parser.add_argument("--id", default=None, help="projektnumber in database")
     parser.add_argument("--verbose", "-v",  type=int,  default=0,
-            help="show Debug info (0,1,2,3)")
-    parser.add_argument("--auto", help="Starts and Stops automatically ",
+            help="show debug info (0,1,2,...,9)")
+    parser.add_argument("--auto", help="automatic mode",
             action="store_true")
     args = parser.parse_args()
 
     dbpath = pathlib.Path(__file__).parent.resolve()
     dbname = os.path.join(dbpath, args.db)
-    print("Database-name <{0}> \nProjet-Id <{1}> Verbose <{2}>".format(
+    print("databasename <{0}> \nproject-Id <{1}> verbose <{2}>".format(
         dbname, args.id, args.verbose))
 
     dbabout = (dbname, args.id, args.auto)

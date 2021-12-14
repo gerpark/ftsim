@@ -7,7 +7,7 @@ import  threading as thr
 try:
     from ftlib4 import *
 except ModuleNotFoundError:
-    print("Did not find Module ftlib4")
+    # print("Did not find Module ftlib4")
     from ftsim.ftlib4 import *
 
 # Definitionen
@@ -15,8 +15,8 @@ except ModuleNotFoundError:
 # https://effbot.org/zone/python-with-statement.htm
 class Db_connect():
     """ Creates a Database Connection
-        and either checks the requested Project-Id
-        or uses otherwise the highest Project-Id
+        and either checks the requested project-id
+        or uses otherwise the highest project-id
     """
     app = None
 
@@ -41,8 +41,7 @@ class Db_connect():
         try:
             if self.prjid:
                 sql = "select prjid from project where prjid=?"
-                para = (self.prjid,)
-                cursor.execute(sql, para)
+                cursor.execute(sql, (self.prjid,))
             else:
                 sql = "select max(prjid) from project "
                 cursor.execute(sql)
