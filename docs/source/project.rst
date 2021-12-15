@@ -19,19 +19,26 @@ An example for a script which re/builds a complete project is given in ``ftsim10
 
 The SQLite Database itself is just a single file.
 If `FTSim` is installed with pip in the usual way, the database and the scripts are hidden or difficult to find.
-But if you want to change or check something, it is easier to choose the directory for installation yourself.
-This can be done with downloading a `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`_.
+
+.. _install2:
+
+Other ways of installing
+------------------------
+
+If you want to change or check something, it might be easier to choose the directory for installation yourself.
+This can be done by downloading a `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`_.
 
 Looking into the details of `ftsim on PYPI <https://pypi.org/project/ftsim/>`_
-You will find a Button "Download Files" and select the file ending  with `tar.gz`.
+You will find a Button "Download Files" and choose the file ending  with `tar.gz`.
 
-Open a terminal and change to the directory of the tarball::
+This `tarball` can be used in different ways. It can be unpacked with Tools like `7-Zip <https://www.7-zip.org/)>`_
+or You could use pip to unpack it into a directory of your choice::
 
-    C:\SOME\DIRECTORY> pip install -t myftsim ftsim-0.9.2.tar.gz
+    C:\SOME\DIRECTORY> pip install --target myftsim ftsim-0.9.2.tar.gz
 
 Somewhere below the created directory `myftsim` exists a directory with the name `ftsim`,
-which contains everything needed, that is the SQLight database ``ft.db``, some python- and
-sqlscripts. Change to that directory and launch the main module `ftmain9`::
+which contains everything needed to run the program, which is a SQLite database (``ft.db``) and 3 python - modules.
+Change to that directory and launch the main module `ftmain9`::
 
     C:\SOME\OTHER\DIRECTORY\FTSIM> python ftmain9.py
 

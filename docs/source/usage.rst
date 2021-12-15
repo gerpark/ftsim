@@ -9,13 +9,13 @@ The program can be used with different configurations,
 which are stored in the database.
 To choose a certain configuration, pass the `project id` as parameter to the program.
 So the program is usually startet from the command line.
-More information about options can be shown using
-the help option::
+More information about options can be shown using ``help``::
 
     ftsim --help
 
 If nothing is specified the database name will be ``ft.db``,
-and the project-id will be the highest number in the database.
+and the project will be the one with the highest number.
+
 More info about Locations and the transport of the `LE's` is
 given with verbose 4.
 
@@ -23,9 +23,8 @@ So starting the program might look like this::
 
     ftsim.py --id 104 -v 4
 
-
-If the option ``auto`` is given, the program will end as soon
-as all `tasks` have been processed.
+If the option ``auto`` is given, the program will start in automatic mode 
+and end as soon as all `tasks` have been processed.
 
 Transports
 ===========

@@ -4,7 +4,7 @@ Getting Started
 Abstract
 --------
 
-FtSim simulates and visualizes the transport of loadunits in a simple warehouse environment.
+FTSim simulates and visualizes the transport of loadunits in a simple warehouse environment.
 Different layouts and optionaly orders are stored in a database and can be used, changed, added by the user.
 The loadunits can be transported in and between areas, like conveyor belts, workstations for picking and storage areas.
 This can be done manually, automatically or driven by orders.
@@ -27,17 +27,16 @@ A MS-Windows installation contains all requested Modules.
 On Linux/MacOS the graphical library ``Tk`` sometimes is missing,
 so You have to install  ``tkinter`` or ``idle``, which is based on tkinter.
 
-
 The installation is done with pip from the command line::
 
     $ pip3 install ftsim
 
 or on Windows::
 
-    C:\USERS\NAME> pip install ftsim
+    C:\USERS\SOMENAME> pip install ftsim
 
-
-.. so just install  `ftsim` using pip_ ::
+if You wish to access the database itself, it might be more convenient
+to install the package a :ref:`different way <install2>`.
 
 
 Basic usage
