@@ -25,19 +25,19 @@ If `FTSim` is installed with pip in the usual way, the database and the scripts 
 Other ways of installing
 ------------------------
 
-If you want to change or check something, it might be easier to choose the directory for installation yourself.
+If you want to change or check something, it might be easier to choose the directory for the installation yourself.
 This can be done by downloading a `tarball <https://en.wikipedia.org/wiki/Tar_(computing)>`_.
 
 Looking into the details of `ftsim on PYPI <https://pypi.org/project/ftsim/>`_
-You will find a Button "Download Files" and choose the file ending  with `tar.gz`.
+you will find a Button "Download Files" and there you choose the file ending  with `tar.gz`.
 
 This `tarball` can be used in different ways. It can be unpacked with Tools like `7-Zip <https://www.7-zip.org/)>`_
-or You could use pip to unpack it into a directory of your choice::
+or you could use pip to unpack it into a directory of your choice::
 
     C:\SOME\DIRECTORY> pip install --target myftsim ftsim-0.9.2.tar.gz
 
 Somewhere below the created directory `myftsim` exists a directory with the name `ftsim`,
-which contains everything needed to run the program, which is a SQLite database (``ft.db``) and 3 python - modules.
+which contains everything needed to run the program, which is the SQLite database (``ft.db``) and 3 python - modules.
 Change to that directory and launch the main module `ftmain9`::
 
     C:\SOME\OTHER\DIRECTORY\FTSIM> python ftmain9.py

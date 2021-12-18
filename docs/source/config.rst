@@ -10,7 +10,7 @@ a Project-Id as primary key.
 The so called Project-Id is specific to each configuration,
 it is the primary key for all tables in the database.
 
-This software comes with a number of different configurations,
+FTSim comes with a number of different configurations,
 but please feel free to create your own ones.
 
 I usually do it step by step using the command line tool ``sqlite3``.
@@ -24,6 +24,9 @@ Only the **order-tables**, if in use, are changed during runtime.
 Basic - Tables
 --------------
 
+Most tables have foreign keys, which can be looked up in the
+database. The foreign keys will help to keep the configuration consistent.
+
 The **central** Configuration Table::
 
     CREATE TABLE project(
@@ -32,7 +35,7 @@ The **central** Configuration Table::
 	fieldy INT,
 	fieldpx INT)
 
-prjid stands for project-id, und fieldx/y is the overall size of the layout.
+prjid stands for the project-id, und fieldx/y is the overall size of the layout.
 
 .. _cfg_ft:
 
@@ -107,13 +110,13 @@ has to be configured::
 	PRIMARY KEY (prjid, lfname))
 
 
-``lfname`` is the source location and
+``lfname`` is the source Location and
 ``altlf`` is the name of the alternate Location.
 
 
 If a Location is the entrance to a certain area,
 a list of **target areas** can be configured.
-The first area will be the area itself, further areas
+The first area will be the Area of that Location , further areas
 will be used for routing::
 
     CREATE TABLE lfziel(
@@ -127,17 +130,15 @@ will be used for routing::
 Order - Tables
 --------------
 
+A Task contains the `LE` with the imaginary inventory,
+that needs to be picked at the Picking Place / the Workstation.
 
-A Task contains the LE, which holds the imaginary inventory,
-which needs to be picked at the Picking Place / the Workstation.
-
-A Taskorder consists of one or more Tasks, so all 
-Tasks will be picked at the same Workstation.
+A Taskorder consists of one or more Tasks, which have to be picked at the same Workstation.
 Taskorder and Tasks are updated during runtime.
 
 If there is a open Taskorder it will be assigned to a free workstation.
 After all Transport Unit's have been processed (virtually picked)
-the **Taskorder** is closed and the workstation freed again::
+the **Taskorder** is closed and the workstation can by used by the next Taskorder::
 
     CREATE TABLE tasko(
 	prjid INT NOT NULL,
@@ -151,9 +152,9 @@ the **Taskorder** is closed and the workstation freed again::
 
 If a Taskorder is assignet to a Workstation ``wsid`` contains the name
 of that Workstation. ``Seq`` is used internally,
-it contains the order of the taskorder and is randomized.
-``Startt`` and ``endt`` contain the time information.
-``Taskostat`` ist the state of the Taskorder and can have these values:
+it is a randomized sorting key.
+``Startt`` and ``endt`` contain time information.
+``Taskostat`` is the state of the Taskorder and can have these values:
 
  *      0  = ready to be used
  *      20 = started, assigned to a workstation
@@ -176,8 +177,8 @@ and the ``taskoid`` it belongs to::
       * 60  LE at workstation
       * 95  LE picked and left the workstation
 
-The table ``le`` is not updated, not used anymore.
-All information about the LE  is stored in the table Task.
+The table ``le`` is not changed during runtime,
+all information about the LE  is stored in the table Task.
 
 The remaining tables are about statistics,
 the times for each Taskorder are written into 

@@ -74,8 +74,8 @@ Each task belonging to that taskorder contains just the name of a Transport Unit
 If that LE is located in a storage area, the task will be started,
 which means, the LE receives the target from the corresponding taskorder.
 
-When the LE arrives at the Workstation a new target
-can be chosen. If the programm was started from the commandline
+When the `LE` arrives at the Workstation a new target
+can be chosen. If the program was started from the commandline
 with automode, or if 'auto Picking' was chosen from the menu,
 the `Workstation Dialog` is handled automatically.
 

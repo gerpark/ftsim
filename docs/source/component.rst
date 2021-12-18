@@ -13,7 +13,7 @@ Transport Units
 It's all about  :ref:`Transport Units<cfg_le>`,
 called **LE**'s (Ladeeinheiten/Loadunits).
 We don't use any inventories, but for picking
-You have to imagine there is some inventory on each `LE`.
+you have to imagine there is some inventory on each `LE`.
 
 .. _basic_ft:
 

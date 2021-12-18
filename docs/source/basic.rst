@@ -25,7 +25,7 @@ Installing
 
 A MS-Windows installation contains all requested Modules.
 On Linux/MacOS the graphical library ``Tk`` sometimes is missing,
-so You have to install  ``tkinter`` or ``idle``, which is based on tkinter.
+so you have to install  ``tkinter`` or ``idle``, which is based on tkinter.
 
 The installation is done with pip from the command line::
 
@@ -35,7 +35,7 @@ or on Windows::
 
     C:\USERS\SOMENAME> pip install ftsim
 
-if You wish to access the database itself, it might be more convenient
+if you wish to access the database itself, it might be more convenient
 to install the package a :ref:`different way <install2>`.
 
 
