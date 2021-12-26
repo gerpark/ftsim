@@ -494,7 +494,7 @@ class Step(thr.Thread):
     def loop(self, ft):
         itest = 0
 
-        # z.Z. sind alle Wartezeiten in den Treads gleich
+        # z.Z. sind alle Wartezeiten für alle Treads gleich
         speed = ft.app.speed
         if ft.typ == "DB":
             log.log(1,"Wartezeit im Zyklus {0} Sekunden.".format(speed))

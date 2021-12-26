@@ -34,7 +34,7 @@ you will find a Button "Download Files" and there you choose the file ending  wi
 This `tarball` can be used in different ways. It can be unpacked with Tools like `7-Zip <https://www.7-zip.org/)>`_
 or you could use pip to unpack it into a directory of your choice::
 
-    C:\SOME\DIRECTORY> pip install --target myftsim ftsim-0.9.2.tar.gz
+    C:\SOME\DIRECTORY> pip install --target myftsim ftsim-0.9.3.tar.gz
 
 Somewhere below the created directory `myftsim` exists a directory with the name `ftsim`,
 which contains everything needed to run the program, which is the SQLite database (``ft.db``) and 3 python - modules.
@@ -45,8 +45,12 @@ Change to that directory and launch the main module `ftmain9`::
 Examples
 --------
 
-Version 0.9.2 comes with 5 projects/configurations.
+Version 0.9.3 comes with 6 projects/configurations.
 They start with the very, very basic example ``101``, just to show, what needs to be configured.
 ``102`` shows a loop and ``103`` introduces a simple picking place (=Workstation). 
 ``104`` has an additional loop and ``105`` has a small storage area.
-Right now there are no examples with orders, - they follow soon.
+Project``106`` is an example with two orders. The order of the `Taskorders` is
+accidental, and as there is only one `Workstation` the taskorders are processed one by one.
+
+
+

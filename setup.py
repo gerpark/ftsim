@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 import pathlib
 
-VERSION = '0.9.2'
+VERSION = '0.9.3'
 DESCRIPTION = 'Simulates and visualises transport of loadunits in a warehouse environment.'
 
 # Get the long description from the README file

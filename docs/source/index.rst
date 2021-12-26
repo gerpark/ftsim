@@ -2,17 +2,17 @@
 Introduction to FTSim
 =====================
 
-This document refers to version 0.9.2 of `FTSim` /  18.12.2021
+(This document refers to version 0.9.3 of `FTSim` /  26.12.2021)
 
 
-`FTSim` is now on `PYPI <https://pypi.org/project/ftsim/>`_ but there is still a lot to do.
+**FTSim** is now on `PYPI <https://pypi.org/project/ftsim/>`_ but there is still a lot to do.
 The program runs stable under MS-Windows and linux, and probably also under MacOS.
 
 What is it all about:
 
-This program simulates and visualizes the transport of loadunits 
-in a simple warehouse environment. These loadunits are called
-Transport Units, as the inventory is only imagined.
+This program simulates and **visualizes** the transport of loadunits 
+in a **automatic warehouse** environment. These loadunits are called
+**Transport Units**, as the inventory is only imagined.
 Transport Units can be moved manually or automatically
 on conveyor belts. It is possible to configure Orders, so the
 Transport Units can move automatically between storage areas and Workstations.

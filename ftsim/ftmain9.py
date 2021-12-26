@@ -73,7 +73,7 @@ class App(ttk.Frame):
                         self.dbname, self.prjid))
                 exit(0)
 
-        parent.title("FTSim - Warehouse with Transport Units - Version 0.9.2")
+        parent.title("FTSim - Warehouse with Transport Units - Version 0.9.3")
 
         # Workstations in eigenen Fenstern rechts von der Visualisierung anzeigen.
         winpos= self.getGeometry()
@@ -265,9 +265,9 @@ class App(ttk.Frame):
         self.sp.grid(row=1, column=0, columnspan=3, sticky=tk.W+tk.E)
 
         self.initSp(fx,fy,fpx)
+
         px = "50"
         py = "20"
-
         self.kp1 = tk.Button(self, text='Workstation', command=self.startkp)
         self.kp1.grid(row=2, column=0, padx=px, ipady=0, pady=py,sticky=tk.W+tk.E)
 
@@ -277,12 +277,8 @@ class App(ttk.Frame):
         self.bstop = tk.Button(self, text='Quit', command=self.ende)
         self.bstop.grid(row=2, column=2, padx=px, ipady=0, pady=py,sticky=tk.W+tk.E)
 
-        #self.btest = tk.Button(self, text='Talk', command=self.browser)
-        #self.btest.grid(row=3, column=0, padx=px, ipady=0, pady=py,sticky=tk.W+tk.E)
-
-
     def initSp(self, x, y, pix):
-        """ Zeichenbrett malen """
+        """ Canvas zeichnen """
         for spalte in range(x):
             for zeile in range(y):
                 x0 = 0 + spalte * pix
@@ -295,22 +291,23 @@ class App(ttk.Frame):
                 self.gitter[(spalte,zeile)] = (r,t)
 
     def ftIni(self):
+        """ Das Layout der Lagerfächer anzeigen """
         Ft.app = self
         for n in Ft.fta:
             ft = Ft.fta[n]
-            self.setBez(ft)
-            for lf in ft.lfa:
-                self.setRect(lf, "grey")
+            if ft.typ != "DB":
+                self.setBez(ft)
+                for lf in ft.lfa:
+                    self.setRect(lf, "grey")
 
     def setBez(self,ft):
-        """ Die Bezeichnung für den FT-Bereich anzeigen """
-        xy = ft.xy
-        if xy:
-            r,t =  self.gitter[xy]
+        """ Die Bezeichnung für den FT-Bereich im Layout anzeigen """
+        if ft.xy:
+            r,t =  self.gitter[ft.xy]
             self.sp.itemconfig(t, text=ft.name)
 
-
     def setRect(self, lf, color):
+        """ Das Lagerfach anzeigen """
         # App::setRect
         r,t =  self.gitter[lf.xy]
         self.sp.itemconfig(r, fill=color)

@@ -31,8 +31,7 @@ Audiance
 
 The project can be used just for playing, or to train sql skills.
 For developers the combination of tkinter, sqlite and threading
-might be of interest. The main iussue was about the question if the time required for a batch of orders
-is predictable.
+might be of interest.
 
 Installation
 ============

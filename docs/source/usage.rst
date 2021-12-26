@@ -9,14 +9,14 @@ The program can be used with different configurations,
 which are stored in the database.
 To choose a certain configuration, pass the `project id` as parameter to the program.
 So the program is usually startet from the command line.
-More information about options can be shown using ``help``::
+More options are given using ``help``::
 
     ftsim --help
 
 If nothing is specified the database name will be ``ft.db``,
-and the project will be the one with the highest number.
+and the project will be the one with the highest `project id`.
 
-More info about Locations and the transport of the `LE's` is
+More info about Location names and the transport of the `LE's` is
 given with verbose 4.
 
 So starting the program might look like this::
@@ -24,7 +24,8 @@ So starting the program might look like this::
     ftsim.py --id 104 -v 4
 
 If the option ``auto`` is given, the program will start in automatic mode 
-and end as soon as all `tasks` have been processed.
+and end as soon as all `tasks` have been processed. Furthermore the Workstation
+does 'automatic picking', so no user interaction is required.
 
 Transports
 ===========
@@ -49,6 +50,8 @@ The name of a picking area starts with the letter 'k'
 followed by a digit. Here the digit is typed instead of the
 letter. Some Picking areas consist of one Location, but they might
 have more Locations as well.
+
+Don't forget for manual transports the focus needs to be in the main window.
 
 
 Automatic transports
@@ -81,3 +84,5 @@ the `Workstation Dialog` is handled automatically.
 
 After picking of all tasks the taskorder is closed and
 the `Workstation` is ready for another `Taskorder`.
+
+If FTSim is startet all Taskorders and Tasks of that project are reset. 

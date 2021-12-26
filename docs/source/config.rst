@@ -127,11 +127,13 @@ will be used for routing::
 ``lfname`` specifies the Location, ``ftname`` contains the target area.
 
 
+.. _cfg_order:
+
 Order - Tables
 --------------
 
 A Task contains the `LE` with the imaginary inventory,
-that needs to be picked at the Picking Place / the Workstation.
+that needs to be picked at the Picking Place / the `Workstation`.
 
 A Taskorder consists of one or more Tasks, which have to be picked at the same Workstation.
 Taskorder and Tasks are updated during runtime.
