@@ -26,7 +26,7 @@ but runs stable under MS-Windows and linux, and probably also under MacOS.
 If You have any questions, suggestions, corrections,
 don't hesitate to contact me at g.w.sachs@gmx.de.
 
-Audiance
+Audience
 ========
 
 The project can be used just for playing, or to train sql skills.
